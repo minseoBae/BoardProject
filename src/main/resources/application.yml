@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: boardProject
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/boardproject
+    username: minseo
+    password: baejjae8218@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+server:
+  port: 80

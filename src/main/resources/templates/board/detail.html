@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Board Detail</title>
+  <link rel="stylesheet" th:href="@{/css/detail.css}">
+</head>
+<body>
+<div id="out-div">
+  <h1 th:text="${board.title}">게시판 제목</h1>
+  <div id="inner-div">
+    <h2 th:text="'Name :' + ${board.name}"></h2>
+    <h2 th:text="'Content :' + ${board.content}"></h2>
+    <h2 th:text="'Created At :' + ${#dates.format(board.created_at, 'yyyy/MM/dd HH:mm')}"></h2>
+  </div>
+
+  <a th:href="@{/board}">List</a>
+  <a th:href="@{/board/deleteForm/{id}(id=${board.id})}">Delete</a>
+  <a th:href="@{/board/updateForm/{id}(id=${board.id})}">Edit</a>
+</div>
+</body>
+</html>
