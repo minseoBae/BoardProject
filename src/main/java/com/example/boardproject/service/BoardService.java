@@ -20,7 +20,6 @@ public class BoardService {
                 Sort.by(Sort.Direction.DESC, "id"));
 
         return boardRepository.findAll(sortedByDescId);
-
     }
 
     @Transactional
@@ -35,7 +34,11 @@ public class BoardService {
 
     @Transactional
     public void update(Board board) {
-        boardRepository.save(board);
+        Board existingBoard = boardRepository.findById(board.getId()).orElse(null);
+        if (existingBoard != null) {
+            boardRepository.save(board);
+            board.setCreated_at(existingBoard.getCreated_at());
+        }
     }
 
     @Transactional

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <form th:action="@{/board/write}" method="post" th:object="${board}">
+    <form th:action="@{/board/update}" method="post" th:object="${board}">
         <input type="hidden" th:field="*{id}">
         <label for="name">Name :</label>
         <input type="text" id="name" th:field="*{name}" required/>
